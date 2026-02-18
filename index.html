@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="pricing-wrapper">
+    <div class="pricing-page">
+        <div class="segmented-control">
+            <div class="segmented-control-slider"></div>
+            <button type="button" class="segmented-control-option segmented-control-option--active" data-index="0">Monthly</button>
+            <button type="button" class="segmented-control-option" data-index="1">Yearly</button>
+        </div>
+        <div class="pricing-wrapper">
         <div class="section-title">
             <h4>Individual Plans</h4>
         </div>
@@ -41,7 +47,7 @@
             </div>
             <button class="download-button">Download</button>
         </div>
-        <div class="card">
+        <div class="card" data-plan="pro">
             <div class="card-top">
                 <h3 class="card-title">Pro</h3>
                 <p class="card-price">
@@ -118,5 +124,29 @@
         </div>
     </div>
     </div>
+    </div>
 </body>
+<script>
+    const slider = document.querySelector('.segmented-control-slider');
+    const proPriceAmount = document.querySelector('[data-plan="pro"] .card-price-amount');
+
+    function updateProPrice(isYearly) {
+        if (proPriceAmount) {
+            proPriceAmount.textContent = isYearly ? '$16' : '$20';
+        }
+    }
+
+    document.querySelectorAll('.segmented-control-option').forEach(button => {
+        button.addEventListener('click', () => {
+            const index = button.getAttribute('data-index');
+            const isYearly = index === '1';
+
+            document.querySelectorAll('.segmented-control-option').forEach(btn => btn.classList.remove('segmented-control-option--active'));
+            button.classList.add('segmented-control-option--active');
+            slider.setAttribute('data-index', index);
+
+            updateProPrice(isYearly);
+        });
+    });
+</script>
 </html>

@@ -15,7 +15,68 @@ body {
     padding: 20px;
 }
 
+.pricing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.segmented-control {
+    position: relative;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: #f2f1ed;
+    border-radius: 999px;
+    padding: 2px;
+    gap: 0;
+}
+
+.segmented-control-slider {
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    width: calc(50% - 2px);
+    background-color: #e6e5e0;
+    border: 1px solid rgba(38, 37, 30, 0.05);
+    border-radius: 999px;
+    transition: transform 0.25s ease;
+    z-index: 0;
+}
+
+.segmented-control-slider[data-index="1"] {
+    transform: translateX(100%);
+}
+
+.segmented-control-option {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(38, 37, 30, 0.5);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.2s ease;
+}
+
+.segmented-control-option:hover:not(.segmented-control-option--active) {
+    color: rgba(38, 37, 30, 0.7);
+}
+
+.segmented-control-option--active {
+    color: #26251e;
+}
+
 .pricing-wrapper {
+    margin-top: 64px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
