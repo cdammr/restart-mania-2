@@ -8,17 +8,30 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f7f7f4;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
 }
 
+.pricing-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section-title h4 {
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 16px;
+}
+
 .cards-container {
     display: flex;
     flex-direction: row;
     column-gap: calc(0.625rem);
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
 }
@@ -83,10 +96,17 @@ body {
 
 .features-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 8px;
     font-size: 16px;
     color: #26251e;
+}
+
+.text-theme-accent {
+    color: #f54e00;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
 }
 
 .checkmark {
@@ -116,4 +136,21 @@ body {
 
 .download-button:active {
     background-color: #D8D6CE;
+}
+
+.download-button--primary {
+    background-color: #26251e;
+    border-color: #26251e;
+    color: white;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.download-button--primary:hover {
+    background-color: #3d3b34;
+    border-color: #3d3b34;
+}
+
+.download-button--primary:active {
+    background-color: #36342e;
+    border-color: #36342e;
 }
